@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-05-30T12:12:21 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="estados" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="777d789e-d57e-4ca7-b670-662d2a1241e9">
+	<property name="com.jaspersoft.studio.data.sql.tables" value="ZHJvZ2FyaWEuZXN0YWRvIEFTICw4Nyw2Miw4ZjExZjliMy1iNGM5LTQ3NGUtOTc4OS0zM2MwOGQ1&#xA;NTZiZGU7"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Drogaria Data Adapter "/>
+	<queryString language="SQL">
+		<![CDATA[SELECT drogaria.estado.nome,
+	drogaria.estado.sigla
+FROM drogaria.estado
+ORDER BY drogaria.estado.nome ASC]]>
+	</queryString>
+	<field name="nome" class="java.lang.String"/>
+	<field name="sigla" class="java.lang.String"/>
+	<title>
+		<band height="83" splitType="Stretch">
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="0" y="10" width="550" height="73" uuid="3aa1e146-0a16-40fe-b532-e531f79570ff"/>
+				<imageExpression><![CDATA["src/main/webapp/resources/images/banner.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="10" width="560" height="30" uuid="7eab6824-0c8e-4d0d-918d-076a65c67273"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial Black" size="18"/>
+				</textElement>
+				<text><![CDATA[Lista de Estados]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="32" splitType="Stretch">
+			<staticText>
+				<reportElement x="84" y="0" width="196" height="30" uuid="ed3f8026-6c1e-418f-8886-488d49fc559b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Black" size="14" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Nome do Estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="0" width="180" height="30" uuid="daf8a141-e85b-439f-9e9d-b3545067c74b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Black" size="14" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Sigla]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="36" splitType="Stretch">
+			<textField>
+				<reportElement x="84" y="0" width="196" height="30" uuid="e0dbe3f6-72d4-46d1-90bf-92427f6f3f94"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="0" width="180" height="30" uuid="4c2c5b8a-6dee-41a6-8941-053a9c511ee7"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sigla}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="87" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="380" y="57" width="100" height="30" uuid="7410af85-9893-4bfc-ad58-6465d0ec7d19"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm">
+				<reportElement x="449" y="57" width="100" height="30" uuid="64055f19-922b-4af6-b84e-aa724bb047ab"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="28" width="560" height="30" uuid="1253d39d-665c-4f66-a2bf-004b9ea67817"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rua Daniel Leite, 130 - Jardim Europa Ourinhos/SP]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

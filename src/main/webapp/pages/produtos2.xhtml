@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/template/modelo.xhtml">
+
+	<ui:define name="conteudo">
+		<h:form id="formulario">
+			<p:panel header="Venda de Produtos">
+				<h:panelGrid columns="3">
+					<p:outputLabel for="codigo" value="Código:" />
+					<p:inputText id="codigo" size="13" maxlength="13"
+						value="#{produtoBean2.produto.codigo}" required="true"
+						converterMessage="Valor inválido"
+						validatorMessage="Informe um valor entre 1 e 9999999999999"
+						requiredMessage="O campo Código é obrigatório!">
+						<f:validateLongRange minimum="1" maximum="9999999999999"/>
+						</p:inputText>
+					<p:commandButton icon="ui-icon-search"
+						update=":mensagem :formulario:painelDados"
+						actionListener="#{produtoBean2.buscar}" />
+				</h:panelGrid>
+
+				<h:panelGroup layout="block" id="painelDados">
+					<h:panelGrid columns="2"
+						rendered="#{produtoBean2.exibirPainelDados}">
+						<h:outputLabel value="Descrição:" />
+						<h:outputText value="#{produtoBean2.produto.descricao}" />
+
+						<h:outputLabel value="Preço: R$" />
+						<h:outputText value="#{produtoBean2.produto.preco}">
+							<f:convertNumber locale="pt_BR" minFractionDigits="2"/>
+						</h:outputText>
+
+						<h:outputLabel value="Quantidade:" />
+						<h:outputText value="#{produtoBean2.produto.quantidade}" />
+
+						<h:outputLabel value="Fabricante:" />
+						<h:outputText value="#{produtoBean2.produto.fabricante.descricao}" />
+					</h:panelGrid>
+				</h:panelGroup>
+			</p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>
